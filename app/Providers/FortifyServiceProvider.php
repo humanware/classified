@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -21,7 +23,21 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Fortify::registerView(function() {
+            return view('auth.register');
+        });
+        Fortify::loginView(function() {
+            return view('auth.login');
+        });
+        Fortify::requestPasswordResetLinkView(function() {
+            return view('auth.forget-password');
+        });
+        Fortify::resetPasswordView(function($request) {
+            return view('auth.reset-password', ['request'=>$request]);
+        });
+        Fortify::verifyEmailView(function() {
+            return view('auth.verify-email');
+        });
     }
 
     /**
