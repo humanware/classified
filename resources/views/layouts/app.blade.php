@@ -18,11 +18,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
+    <style>
+        /* .dropdown:hover>.dropdown-menu {
+            display:block;
+        } */
+        @media only screen and (max-width:9991px) {
+            .navbar-hover .show > .dropdown-toggle::after {
+                transform: rotate(-90deg);
+            }
+        }
+        @media only screen and (min-width:492px) {
+            .navbar-hover .collapse ul li {
+                position:relative;
+            }
+            .navbar-hover .collapse ul li:hover > ul {
+                display: block;
+            }
+            .navbar-hover .collapse ul ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: 250px;
+                display: none;
+            }
+            .navbar-hover .collapse ul ul ul {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                min-width: 250px;
+                display: none;
+            }
+            }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-danger shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -73,6 +105,37 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Second Navbar -->
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-hover">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false"
+                aria-label="Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarHover">
+                <ul class="navbar-nav">
+                    @for($i = 0; $i < 12; $i++)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown_remove_dropdown_class_for_clickable_link" area-haspopup="true" area-expanded="false">
+                            Category
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" class="dropdown-item dropdown-toggle">Subcategory (Laptop)</a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" class="dropdown-item">Child Category (Acer)</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    @endfor
+                </ul>
+            </div>
+        </nav>
+
     </div>
 
     <main class="py-4">
