@@ -23,17 +23,20 @@
             display:block;
         } */
         @media only screen and (max-width:9991px) {
-            .navbar-hover .show > .dropdown-toggle::after {
+            .navbar-hover .show>.dropdown-toggle::after {
                 transform: rotate(-90deg);
             }
         }
+
         @media only screen and (min-width:492px) {
             .navbar-hover .collapse ul li {
-                position:relative;
+                position: relative;
             }
-            .navbar-hover .collapse ul li:hover > ul {
+
+            .navbar-hover .collapse ul li:hover>ul {
                 display: block;
             }
+
             .navbar-hover .collapse ul ul {
                 position: absolute;
                 top: 100%;
@@ -41,6 +44,7 @@
                 min-width: 250px;
                 display: none;
             }
+
             .navbar-hover .collapse ul ul ul {
                 position: absolute;
                 top: 0;
@@ -48,7 +52,8 @@
                 min-width: 250px;
                 display: none;
             }
-            }
+        }
+
     </style>
 </head>
 
@@ -90,7 +95,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                                                document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -109,28 +114,29 @@
         <!-- Second Navbar -->
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-hover">
             <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false"
-                aria-label="Navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover"
+                aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarHover">
                 <ul class="navbar-nav">
-                    @for($i = 0; $i < 12; $i++)
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown_remove_dropdown_class_for_clickable_link" area-haspopup="true" area-expanded="false">
-                            Category
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#" class="dropdown-item dropdown-toggle">Subcategory (Laptop)</a>
+                    @for ($i = 0; $i < 12; $i++)
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                data-toggle="dropdown_remove_dropdown_class_for_clickable_link" area-haspopup="true"
+                                area-expanded="false">
+                                Category
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#" class="dropdown-item dropdown-toggle">Subcategory (Laptop)</a>
 
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" class="dropdown-item">Child Category (Acer)</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" class="dropdown-item">Child Category (Acer)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     @endfor
                 </ul>
             </div>
@@ -138,7 +144,7 @@
 
     </div>
 
-    <main class="py-4">
+    <main class="py-4" style="padding:0 !important;">
         @yield('content')
     </main>
     </div>
